@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ditsy hunt | every sample sale this week</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,500;1,700&family=Fraunces:ital,opsz,wght@1,9..144,800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#E8BFC8; --rasp:#C85573; --maroon:#84253D; --lime:#E2E98F; --clay:#D4835A; --cream:#F3EAE0;
+  --bg:#F3EAE0; --bg2:#E8BFC8; --ink:#84253D; --accent:#C85573; --card:#FBF6F0; --pill-ink:#84253D;
+  --display:'Fraunces','Cooper Black',Georgia,serif; --script:'Playfair Display',Georgia,serif; --body:'DM Sans',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#2A1018;--bg2:#3A1622;--ink:#F3EAE0;--accent:#E8899F;--card:#35161F;--pill-ink:#84253D}
+}
+:root[data-theme="dark"]{--bg:#2A1018;--bg2:#3A1622;--ink:#F3EAE0;--accent:#E8899F;--card:#35161F;--pill-ink:#84253D}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rasp);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.pill{display:inline-block;background:var(--lime);color:var(--pill-ink);font-weight:700;font-style:italic;text-decoration:none;padding:.65em 1.5em;border-radius:999px;border:0;font:inherit;font-weight:700;font-style:italic;cursor:pointer}
+.pill:hover{background:var(--clay);color:#fff}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--accent)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.mark{font-family:var(--display);font-style:italic;font-weight:800;font-size:26px;line-height:.9;text-decoration:none;color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-weight:500;font-style:italic}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline;text-decoration-thickness:2px}
+.hero{background:var(--bg2);padding:56px 0 64px;text-align:center}
+.hero h1{font-family:var(--display);font-style:italic;font-weight:800;color:var(--accent);margin:0;font-size:clamp(84px,22vw,230px);line-height:.8;letter-spacing:-.03em}
+.hero h1 span{display:block}
+.hero h1 span+span{margin-top:.02em}
+.hero p{font-style:italic;font-weight:500;font-size:clamp(20px,3vw,26px);margin:28px 0 26px;color:var(--ink)}
+section{padding:72px 0}
+h2{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(44px,9vw,84px);line-height:.95;margin:0 0 10px;letter-spacing:-.02em;color:var(--accent)}
+.sub{margin:0 0 36px;max-width:52ch}
+.week{display:inline-block;background:var(--pink);color:var(--maroon);border-radius:999px;padding:.2em 1em;font-weight:700;font-style:italic;margin-bottom:22px}
+.sales{list-style:none;margin:0;padding:0;border-top:2px solid var(--accent)}
+.sale{display:grid;grid-template-columns:190px 1fr auto;gap:8px 22px;align-items:center;padding:22px 0;border-bottom:2px solid var(--accent)}
+.when{font-family:var(--display);font-style:italic;font-weight:800;font-size:30px;line-height:1;color:var(--accent)}
+.when small{display:block;font-family:var(--body);font-size:15px;font-weight:500;color:var(--ink);margin-top:6px}
+.sale h3{margin:0;font-size:22px;font-weight:700;font-style:italic}
+.sale p{margin:2px 0 0;opacity:.85}
+.tag{display:inline-block;background:var(--lime);color:var(--maroon);font-size:14px;font-weight:700;border-radius:999px;padding:.05em .8em;margin-left:8px;vertical-align:2px}
+.filters{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 26px}
+.fsel{font:inherit;font-weight:500;font-style:italic;color:var(--ink);background:var(--bg);border:2px solid var(--accent);border-radius:999px;padding:.35em 1em;cursor:pointer}
+.fclear{font:inherit;font-style:italic;font-weight:700;color:var(--ink);background:none;border:0;text-decoration:underline;cursor:pointer;padding:.35em .4em}
+.fclear[hidden]{display:none}
+.picks{background:var(--maroon);color:var(--cream)}
+.picks h2{color:var(--pink)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:28px}
+.pick{background:var(--pink);color:var(--maroon);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:4px}
+.pick .when,.pick .when small{color:var(--maroon)}
+.pick h3{margin:10px 0 0;font-size:22px;font-weight:700;font-style:italic}
+.pick p{margin:0}
+.pick .pill{margin-top:16px;align-self:flex-start;background:var(--maroon);color:var(--cream)}
+.pick .pill:hover{background:var(--clay);color:#fff}
+.faq{background:var(--bg2)}
+.faqgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px}
+.faq h3{font-family:var(--display);font-style:italic;font-weight:800;font-size:26px;line-height:1.1;margin:0 0 6px;color:var(--ink)}
+.faq p{margin:0 0 22px;max-width:52ch}
+.tips{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.tips li{background:var(--card);border-radius:14px;padding:14px 18px}
+.tips b{font-style:italic}
+.faq h3.big{font-size:clamp(40px,7vw,64px);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pastc{border:2px solid var(--accent);border-radius:999px;padding:.35em 1.1em}
+.pastc b{font-style:italic}
+.submit{background:var(--lime);color:var(--maroon)}
+.submit h2{color:var(--maroon)}
+.submit .pill{background:var(--maroon);color:var(--cream)}
+.submit .pill:hover{background:var(--clay);color:#fff}
+.cal{font-size:15px;font-style:italic;font-weight:500}
+@media (max-width:700px){.faqgrid{grid-template-columns:1fr}}
+nav ul{overflow-x:auto;scrollbar-width:none;min-width:0}
+nav ul::-webkit-scrollbar{display:none}
+nav li{flex:none}.mark{flex:none}
+.signup{background:var(--bg2);padding:52px 0}
+.signrow{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.signup h2{margin:0 0 6px;font-size:clamp(36px,7vw,60px)}
+.abouttxt p{max-width:60ch;margin:0 0 14px}
+.joinbox{margin-top:44px;background:var(--maroon);color:var(--cream);border-radius:14px;padding:30px 32px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.faq .joinbox h3{color:var(--pink);font-size:clamp(30px,5vw,44px);margin:0 0 6px}
+.faq .joinbox p{margin:0}
+.empty{padding:28px 0;font-style:italic}
+.finds{background:var(--cream);color:var(--maroon);--accent:#C85573}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .finds{background:#3A1622;color:#F3EAE0;--accent:#E8899F}}
+:root[data-theme="dark"] .finds{background:#3A1622;color:#F3EAE0;--accent:#E8899F}
+.finds h2{font-family:var(--script);font-weight:600;font-size:clamp(54px,11vw,110px)}
+.finds-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.tote{width:110px;height:auto;flex:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:30px}
+.find{border-radius:14px;aspect-ratio:1;padding:26px 22px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--maroon)}
+.find:nth-child(1){background:var(--pink)}.find:nth-child(2){background:var(--lime)}.find:nth-child(3){background:var(--clay);color:#fff}.find:nth-child(4){background:var(--rasp);color:#fff}
+.find b{font-family:var(--display);font-style:italic;font-weight:800;font-size:28px;line-height:1}
+.find span{font-style:italic;font-weight:500}
+.find:hover{transform:rotate(-1.5deg)}
+.find{transition:transform .2s}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about p{margin:0 0 14px;max-width:48ch}
+form{background:var(--pink);color:var(--maroon);border-radius:32px;padding:28px}
+form h3{font-family:var(--display);font-style:italic;font-weight:800;font-size:34px;line-height:1;margin:0 0 8px}
+form label{display:block;font-weight:500;margin:16px 0 6px}
+input[type=email]{width:100%;padding:.8em 1.1em;border-radius:999px;border:2px solid var(--maroon);background:#fff;font:inherit;color:#2A1018}
+form .pill{margin-top:16px}
+#thanks{margin-top:12px;font-weight:700;font-style:italic;min-height:1.5em}
+footer{background:var(--maroon);color:var(--cream);padding:40px 0;text-align:center}
+footer .mark{color:var(--pink);font-size:40px;display:block;margin-bottom:10px}
+footer a{color:var(--lime)}
+@media (max-width:700px){
+  nav ul{gap:14px;font-size:15px}.mark{font-size:22px}
+  .sale{grid-template-columns:1fr;gap:6px}.sale .pill{justify-self:start;margin-top:8px}
+  .about{grid-template-columns:1fr}section{padding:52px 0}.tote{width:80px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.find{transition:none}.find:hover{transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="mark" href="#top">ditsy hunt</a>
+  <ul>
+    <li><a href="#weekly-hunt">the weekly hunt</a></li>
+    <li><a href="#finds">ditsy finds</a></li>
+    <li><a href="#faq">sample sale 101</a></li>
+    <li><a href="#join">get the list</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <h1><span>ditsy</span><span>hunt</span></h1>
+  <p>every sample sale this week, all in one place</p>
+  <a class="pill" href="#weekly-hunt">see this week's sales</a>
+</div></header>
+
+<section class="picks" id="picks"><div class="wrap">
+  <h2>my top picks</h2>
+  <p class="sub">The three sales I'd go to first.</p>
+  <div class="pgrid" id="picksGrid"></div>
+</div></section>
+
+<section id="weekly-hunt"><div class="wrap">
+  <h2>the weekly hunt</h2>
+  <p class="sub">Every sample sale worth your Saturday, collected in one place and updated each week. Tap book to reserve your spot.</p>
+  <div class="filters" id="filters"></div>
+  <div class="week" id="weekLabel"></div>
+  <ul class="sales" id="sales"></ul>
+  <h2 style="margin-top:72px;font-size:clamp(36px,7vw,60px)">coming up</h2>
+  <p class="sub">Next week and beyond. Put these in your diary.</p>
+  <ul class="sales" id="upcomingSales"></ul>
+</div></section>
+
+<section class="finds" id="finds"><div class="wrap">
+  <div class="finds-head">
+    <div>
+      <h2>ditsy finds</h2>
+      <p class="sub" style="margin:0;font-size:22px;font-style:italic;font-weight:700">the little things worth finding</p><p class="sub" style="margin:8px 0 0">Small things we love and think you will too. New finds land here between hunts.</p>
+    </div>
+    <svg class="tote" viewBox="0 0 110 120" fill="none" stroke="#C85573" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 44C28 8 82 8 80 44"/><path d="M14 40l4 74 76-2-4-72z"/><circle cx="32" cy="48" r="5"/><circle cx="76" cy="48" r="5"/></svg>
+  </div>
+  <div class="grid" id="finds-grid"></div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <h2>sample sale 101</h2>
+  <p class="sub">Ditsy Hunt is for people who love a bargain with a bit of personality. Sample sales sell out fast and are scattered across the internet, so every week we gather them in one place. New to sample sales? Here is what they are and how to get the most out of one.</p>
+  <div class="faqgrid">
+    <div>
+      <h3>what's a sample sale?</h3>
+      <p>A short, limited sale where brands clear out samples, past-season pieces, returns and overstock, often at a big discount. Stock is one-off and sizes sell out, so it's first come, first served.</p>
+      <h3>do I need to book?</h3>
+      <p>Often, yes. Many sales run on timed slots, so check the button on each sale. If it's walk-in, we say so.</p>
+      <h3>can I return things?</h3>
+      <p>Usually not. Most sales are final, so check each item over before you pay and read the rules on the booking page.</p>
+    </div>
+    <div>
+      <h3 class="big">tips</h3>
+      <ul class="tips">
+        <li><b>Know your size in that brand.</b> Sizing varies a lot between brands, so check what you usually take before you go.</li>
+        <li><b>Expect one big shared changing room.</b> Everyone tries things on together, so if you're not comfortable, wear a vest and shorts underneath so you can try things on easily.</li>
+        <li><b>Make friends.</b> Don't be afraid to ask for help in the changing room, like zipping up a dress. Other than that, it gets feisty in there.</li>
+        <li><b>Check how you can pay.</b> Some sales take card only, others prefer cash.</li>
+        <li><b>Travel light.</b> Some sales make you leave coats and bags in a cloakroom.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="joinbox" id="join">
+    <div>
+      <h3>get the list first</h3>
+      <p>One email a week with the new hunt, before it goes on the site.</p>
+    </div>
+    <a class="pill" id="joinBtn" href="#" target="_blank" rel="noopener">Join the hunt</a>
+  </div>
+</div></section>
+
+<section class="past" id="past"><div class="wrap">
+  <h2>past hunts</h2>
+  <p class="sub">Recent sales that have ended. Brands often come back, so keep an eye out.</p>
+  <div class="chips" id="pastChips"></div>
+</div></section>
+
+<section class="submit" id="submit"><div class="wrap">
+  <h2>submit a sale</h2>
+  <p class="sub">Running a sample sale, or spotted one we've missed? Send us the brand, dates, address and booking link and we'll add it to the hunt.</p>
+  <a class="pill" id="submitBtn" href="#" target="_blank" rel="noopener">Send us a sale</a>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="mark">ditsy hunt</span>
+  <a href="https://instagram.com/ditsyhunt">Instagram</a> &nbsp;&nbsp; <a href="https://tiktok.com/@ditsyhunt">TikTok</a>
+</div></footer>
+
+<script>
+/* ============ EDIT THIS EACH WEEK ============ */
+const WEEK_LABEL = "This week: 13 to 18 October";
+const SALES = [
+  // day, date, time, brand, place, note (optional tag), link
+  {day:"Tue to Fri", date:"13 to 16 Oct", time:"10:30am to 8:30pm, Fri until 3:30pm", brand:"Jimmy Choo Sample Sale", area:"central", kinds:["shoes"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"shoes", link:"https://www.showcase.co/event/jimmy-choo-oct26-rs-uk/attend"},
+  {day:"Wed to Sat", date:"until 17 Oct", time:"11am to 7pm", brand:"Style Fuel Sample Sale", area:"", kinds:["womenswear"], place:"London", tag:"free tickets", link:"https://www.eventbrite.com/e/sample-sale-tickets-2002937466881"},
+  {day:"Thu", date:"15 Oct", time:"from 8am until stock runs out", brand:"Bella Freud Sample Sale", area:"", kinds:["womenswear"], place:"London", tag:"walk in, no booking", link:""},
+  {day:"Thu to Sun", date:"15 to 18 Oct", time:"", brand:"YMC Archive Sale", area:"", kinds:["menswear","womenswear","archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-ymc"},
+  {day:"Fri", date:"16 Oct", time:"from 9am", brand:"Resident Archive Sale", area:"north", kinds:["archive"], place:"4 Pentonville Rd, Angel", tag:"archive", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
+  {day:"Fri to Sun", date:"16 to 18 Oct", time:"", brand:"SiciliaFashion Italian Menswear Sale", area:"north", kinds:["menswear"], place:"7 Heath St, Hampstead, NW3 6TP", tag:"menswear", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
+  {day:"Sat", date:"17 Oct", time:"10am to 6pm", brand:"The One & Only Designer Sale", area:"central", kinds:["designer"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"designer", link:"https://www.showcase.co/event/the-one-only-designer-sale-oct26-uk-rs2/#modal-signup"}
+];
+const UPCOMING = [
+  {day:"Tue to Thu", date:"20 to 22 Oct", time:"8am to 8pm", brand:"Reiss Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"next week", link:"https://www.showcase.co/event/reiss-oct26-uk-rs/attend"},
+  {day:"Tue to Wed", date:"20 to 21 Oct", time:"", brand:"Juicy Couture Sample Sale", area:"", kinds:["womenswear"], place:"The Box, London", tag:"next week", link:"https://thebox-london.com/products/juicy-couture-sample-sale"},
+  {day:"Fri to Mon", date:"23 to 26 Oct", time:"", brand:"Dr. Martens Archive Sale", area:"", kinds:["shoes","archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-dm"},
+  {day:"Mon to Sat", date:"26 to 31 Oct", time:"from 10:30am", brand:"Egomark Fashion Agency Sample Sale", area:"east", kinds:["womenswear","menswear"], place:"54 Hoxton Square, N1 6PB", tag:"up to 85% off", link:"https://www.eventbrite.com/e/sample-sale-egomark-fashion-agency-tickets-2003199815573"},
+  {day:"Wed to Fri", date:"28 to 30 Oct", time:"Wed 3 to 7:30pm, Thu 9am to 8pm, Fri 9am to 12pm", brand:"Linda Farrow Sample Sale", area:"central", kinds:["accessories"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"sunglasses", link:"https://www.showcase.co/event/linda-farrow-oct26-uk-rs/"},
+  {day:"Sat", date:"31 Oct", time:"", brand:"Massi's Yard Archive Sale", area:"", kinds:["menswear","archive"], place:"London", tag:"archive", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
+  {day:"Sat", date:"31 Oct", time:"10am to 4pm, hourly slots", brand:"Luxury Bridal Outlet Pop-Up", area:"south", kinds:["bridal"], place:"Parkhall Business Centre, 40 Martell Rd, SE21 8EN", tag:"bridal", link:"https://www.eventbrite.co.uk/e/luxury-bridal-outlet-pop-up-sample-sale-tickets-2002892741105"},
+  {day:"Thu", date:"5 Nov", time:"9am to 6:30pm", brand:"Aspiga Sample Sale", area:"west", kinds:["womenswear"], place:"Chelsea Old Town Hall, King's Road, SW3 5EE", tag:"from £10", link:"https://www.eventbrite.co.uk/e/aspiga-sample-sale-tickets-2003197408373"},
+  {day:"", date:"6 to 8 Nov", time:"Fri 12 to 7pm, Sat 11 to 4pm, Sun 11 to 2pm", brand:"The Great Divide Sample Sale", area:"east", kinds:[], place:"Unit 4 Tanners Yard, 1-3 Treadway St, E2 6QB", tag:"cash preferred", link:"https://www.eventbrite.co.uk/e/the-great-divide-sample-sale-frizmworks-pendleton-dubbleware-more-tickets-2002629981183"}
+];
+const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
+const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
+const PAST = [
+  {brand:"Self-Portrait", date:"8 to 11 Oct"},
+  {brand:"LSA Archive Sale", date:"6 to 8 Oct"},
+  {brand:"Sunspel", date:"1 to 4 Oct"},
+  {brand:"Caravana Archive Sale", date:"29 to 30 Sep"},
+  {brand:"Casablanca", date:"29 Sep"},
+  {brand:"Le Monde Béryl, &Daughter and Le Kilt", date:"25 to 27 Sep"},
+  {brand:"Dunhill", date:"24 to 26 Sep"},
+  {brand:"Stan Ray Archive Sale", date:"23 to 25 Sep"}
+];
+const TOP_PICKS = ["Aspiga Sample Sale", "Reiss Sample Sale", "Jimmy Choo Sample Sale"]; // brand names, written exactly as in the lists
+const FINDS = [
+  {title:"Frock Me vintage fair", note:"100+ vintage fashion and jewellery dealers across 3 floors. Sun 18 Oct, Kensington Town Hall.", link:"https://www.eventbrite.co.uk/e/frock-me-vintage-fashion-and-jewellery-fair-october-2026-tickets-1992340968469"},
+  {title:"Pre-loved designer pop-up", note:"50 to 80% off Chanel, Prada, Loewe and more. 5 to 7 Nov, White City, £5 tickets.", link:"https://www.eventbrite.co.uk/e/fashion-pop-up-pre-loved-designer-sale-tickets-2002076841728"},
+  {title:"Fashion week runway and market", note:"Independent brands on the runway plus a pop-up market. Sat 20 Feb 2027, Kingsland Rd.", link:"https://www.eventbrite.com/e/fashion-show-during-london-fashion-week-tickets-1971483253482"}
+];
+/* ============================================= */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('weekLabel').textContent = WEEK_LABEL;
+const MONTHS = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+const pad2 = n => String(n).padStart(2, '0');
+const ymd = t => { const d = new Date(t); return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate()); };
+const calLink = s => {
+  const m = String(s.date).match(/(\d{1,2})(?:\s*to\s*(\d{1,2}))?\s+([A-Za-z]{3})/);
+  if (!m) return '';
+  const mo = MONTHS[m[3].toLowerCase()]; if (!mo) return '';
+  const now = new Date();
+  const end = Date.UTC(2026, mo - 1, +(m[2] || m[1]));
+  const start = /until/i.test(s.date) ? Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) : Date.UTC(2026, mo - 1, +m[1]);
+  const detail = [s.day, s.time].filter(Boolean).join(', ') + (s.link ? '\n' + s.link : '');
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(s.brand) +
+    '&dates=' + ymd(start) + '/' + ymd(end + 86400000) + '&details=' + encodeURIComponent(detail) + '&location=' + encodeURIComponent(s.place);
+};
+const render = (id, arr, msg) => { document.getElementById(id).innerHTML = arr.length ? arr.map(s => `
+  <li class="sale">
+    <div class="when">${esc(s.date)}<small>${esc([s.day, s.time].filter(Boolean).join(', '))}</small></div>
+    <div><h3>${esc(s.brand)}${s.tag ? `<span class="tag">${esc(s.tag)}</span>` : ''}</h3><p>${esc(s.place)}</p><p><a class="cal" href="${esc(calLink(s))}" target="_blank" rel="noopener">Add to calendar</a></p></div>
+    ${s.link ? `<a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">Book a slot</a>` : ''}
+  </li>`).join('') : '<li class="empty">' + msg + '</li>'; };
+const ALL = SALES.concat(UPCOMING);
+const state = {area:'all', kind:'all'};
+const areas = ['central','east','north','south','west'].filter(a => ALL.some(x => x.area === a));
+const kinds = Array.from(new Set(ALL.reduce((acc, x) => acc.concat(x.kinds || []), [])));
+const match = x => (state.area === 'all' || x.area === state.area) && (state.kind === 'all' || (x.kinds || []).indexOf(state.kind) > -1);
+const draw = () => {
+  render('sales', SALES.filter(match), 'Nothing this week matches those filters.');
+  render('upcomingSales', UPCOMING.filter(match), 'Nothing coming up matches those filters.');
+};
+const bar = document.getElementById('filters');
+const sel = (key, allLabel, opts) => '<select class="fsel" data-key="' + key + '" aria-label="' + allLabel + '"><option value="all">' + allLabel + '</option>' + opts.map(o => '<option value="' + esc(o) + '">' + esc(o) + '</option>').join('') + '</select>';
+bar.innerHTML = sel('area', 'All areas', areas) + sel('kind', 'All types', kinds) + '<button type="button" class="fclear" hidden>Clear</button>';
+const clear = bar.querySelector('.fclear');
+bar.addEventListener('change', e => {
+  const x = e.target.closest('.fsel'); if (!x) return;
+  state[x.dataset.key] = x.value;
+  clear.hidden = state.area === 'all' && state.kind === 'all';
+  draw();
+});
+clear.addEventListener('click', () => {
+  state.area = 'all'; state.kind = 'all';
+  bar.querySelectorAll('.fsel').forEach(x => { x.value = 'all'; });
+  clear.hidden = true; draw();
+});
+draw();
+document.getElementById('picksGrid').innerHTML = TOP_PICKS.map(n => ALL.find(s => s.brand === n)).filter(Boolean).map(s => `
+  <div class="pick">
+    <div class="when">${esc(s.date)}</div>
+    <h3>${esc(s.brand)}</h3><p>${esc(s.place)}</p>
+    <a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">Book a slot</a>
+  </div>`).join('');
+document.getElementById('finds-grid').innerHTML = FINDS.map(f =>
+  `<a class="find" href="${esc(f.link)}" target="_blank" rel="noopener"><b>${esc(f.title)}</b><span>${esc(f.note)}</span></a>`).join('');
+document.getElementById('pastChips').innerHTML = PAST.map(x => '<div class="pastc"><b>' + esc(x.brand) + '</b> ' + esc(x.date) + '</div>').join('');
+document.getElementById('submitBtn').href = SUBMIT_LINK;
+const joinBtn = document.getElementById('joinBtn');
+joinBtn.href = SUBSTACK_URL || 'https://instagram.com/ditsyhunt';
+joinBtn.textContent = SUBSTACK_URL ? 'Join the hunt' : 'Follow @ditsyhunt';
+</script>
+</body>
+</html>
