@@ -90,6 +90,11 @@ nav li{flex:none}.mark{flex:none}
 .hero{background:#EABFC8;color:#84253D}
 .hero p{color:#84253D}
 .hero h1 img{display:block;margin:0 auto;width:clamp(270px,64vw,580px);height:auto}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:12px 4px;cursor:pointer;margin-left:auto}
+.burger span{display:block;width:26px;height:3px;border-radius:3px;background:var(--logo);transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 .empty{padding:28px 0;font-style:italic}
 .finds{background:var(--cream);color:var(--maroon);--accent:#BD3656}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .finds{background:#3A1622;color:#F3EAE0;--accent:#E8899F}}
@@ -115,7 +120,12 @@ footer{background:var(--maroon);color:var(--cream);padding:40px 0;text-align:cen
 footer .mark{color:var(--pink);font-size:40px;display:block;margin-bottom:10px}
 footer a{color:var(--lime)}
 @media (max-width:700px){
-  nav ul{gap:14px;font-size:15px}.mark{font-size:22px}
+  .mark{font-size:22px}
+  .burger{display:flex}
+  nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;overflow:visible;background:var(--bg);border-bottom:2px solid var(--accent);padding:4px 22px 12px}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:14px 0;font-size:20px;border-bottom:1px solid var(--bg2)}
+  nav li:last-child a{border-bottom:0}
   .sale{grid-template-columns:1fr;gap:6px}.sale .pill{justify-self:start;margin-top:8px}
   .about{grid-template-columns:1fr}section{padding:52px 0}.tote{width:80px}
 }
@@ -125,12 +135,13 @@ footer a{color:var(--lime)}
 <body>
 <nav><div class="wrap">
   <a class="mark" href="#top">ditsy hunt</a>
-  <ul>
+  <ul id="navlist">
     <li><a href="#weekly-hunt">the weekly hunt</a></li>
     <li><a href="#finds">ditsy finds</a></li>
     <li><a href="#faq">sample sale 101</a></li>
     <li><a href="#join">get the list</a></li>
   </ul>
+  <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlist"><span></span><span></span><span></span></button>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -141,7 +152,7 @@ footer a{color:var(--lime)}
 
 <section class="picks" id="picks"><div class="wrap">
   <h2>my top picks</h2>
-  <p class="sub">The three sales I'd go to first.</p>
+  <p class="sub">The sales I'd go to first.</p>
   <div class="pgrid" id="picksGrid"></div>
 </div></section>
 
@@ -218,31 +229,34 @@ footer a{color:var(--lime)}
 
 <script>
 /* ============ EDIT THIS EACH WEEK ============ */
-const WEEK_LABEL = "This week: 13 to 18 October";
+const WEEK_LABEL = "This week: 18 to 25 October";
 const SALES = [
-  // day, date, time, brand, place, note (optional tag), link
-  {day:"Tue to Fri", date:"13 to 16 Oct", time:"10:30am to 8:30pm, Fri until 3:30pm", brand:"Jimmy Choo Sample Sale", area:"central", kinds:["shoes"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"shoes", link:"https://www.showcase.co/event/jimmy-choo-oct26-rs-uk/attend"},
-  {day:"Wed to Sat", date:"until 17 Oct", time:"11am to 7pm", brand:"Style Fuel Sample Sale", area:"", kinds:["womenswear"], place:"London", tag:"free tickets", link:"https://www.eventbrite.com/e/sample-sale-tickets-2002937466881"},
-  {day:"Thu", date:"15 Oct", time:"from 8am until stock runs out", brand:"Bella Freud Sample Sale", area:"", kinds:["womenswear"], place:"London", tag:"walk in, no booking", link:""},
-  {day:"Thu to Sun", date:"15 to 18 Oct", time:"", brand:"YMC Archive Sale", area:"", kinds:["menswear","womenswear","archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-ymc"},
-  {day:"Fri", date:"16 Oct", time:"from 9am", brand:"Resident Archive Sale", area:"north", kinds:["archive"], place:"4 Pentonville Rd, Angel", tag:"archive", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
-  {day:"Fri to Sun", date:"16 to 18 Oct", time:"", brand:"SiciliaFashion Italian Menswear Sale", area:"north", kinds:["menswear"], place:"7 Heath St, Hampstead, NW3 6TP", tag:"menswear", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
-  {day:"Sat", date:"17 Oct", time:"10am to 6pm", brand:"The One & Only Designer Sale", area:"central", kinds:["designer"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"designer", link:"https://www.showcase.co/event/the-one-only-designer-sale-oct26-uk-rs2/#modal-signup"}
-];
-const UPCOMING = [
   {day:"Tue to Thu", date:"20 to 22 Oct", time:"8am to 8pm", brand:"Reiss Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"next week", link:"https://www.showcase.co/event/reiss-oct26-uk-rs/attend"},
   {day:"Tue to Wed", date:"20 to 21 Oct", time:"", brand:"Juicy Couture Sample Sale", area:"", kinds:["womenswear"], place:"The Box, London", tag:"next week", link:"https://thebox-london.com/products/juicy-couture-sample-sale"},
+  {day:"Tue to Wed", date:"20 to 21 Oct", time:"8am to 8pm", brand:"Thom Sweeney Sample Sale", area:"central", kinds:["menswear"], place:"The Music Room, Mayfair", tag:"cards only", link:""},
+  {day:"Thu to Sun", date:"22 to 25 Oct", time:"Thu 1:30 to 9pm, Fri 8am to 8pm, Sat 9:30am to 6pm, Sun 10am to 5pm", brand:"Studio Nicholson Sample Sale", area:"central", kinds:["womenswear","menswear","shoes"], place:"The Music Room, Mayfair", tag:"walk in, £2 entry to charity", link:""},
   {day:"Fri to Mon", date:"23 to 26 Oct", time:"", brand:"Dr. Martens Archive Sale", area:"", kinds:["shoes","archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-dm"},
+  {day:"Sat to Sun", date:"24 to 25 Oct", time:"Sat 10am to 6pm, Sun 11am to 4pm", brand:"SiciliaFashion Italian Menswear Sale", area:"north", kinds:["menswear"], place:"7 Heath St, Hampstead, NW3 6TP", tag:"booking required", link:"https://www.eventbrite.com/e/siciliafashion-exclusive-italian-menswear-sample-sale-hampstead-tickets-2002388962289"},
+];
+const UPCOMING = [
   {day:"Mon to Sat", date:"26 to 31 Oct", time:"from 10:30am", brand:"Egomark Fashion Agency Sample Sale", area:"east", kinds:["womenswear","menswear"], place:"54 Hoxton Square, N1 6PB", tag:"up to 85% off", link:"https://www.eventbrite.com/e/sample-sale-egomark-fashion-agency-tickets-2003199815573"},
   {day:"Wed to Fri", date:"28 to 30 Oct", time:"Wed 3 to 7:30pm, Thu 9am to 8pm, Fri 9am to 12pm", brand:"Linda Farrow Sample Sale", area:"central", kinds:["accessories"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"sunglasses", link:"https://www.showcase.co/event/linda-farrow-oct26-uk-rs/"},
+  {day:"Wed to Fri", date:"28 to 30 Oct", time:"", brand:"Gallery Dept. Sample Sale", area:"central", kinds:[], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2610-gd"},
+  {day:"Thu to Sun", date:"29 Oct to 1 Nov", time:"", brand:"Vivienne Westwood Archive Sale", area:"", kinds:["archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-vw"},
   {day:"Sat", date:"31 Oct", time:"", brand:"Massi's Yard Archive Sale", area:"", kinds:["menswear","archive"], place:"London", tag:"archive", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
   {day:"Sat", date:"31 Oct", time:"10am to 4pm, hourly slots", brand:"Luxury Bridal Outlet Pop-Up", area:"south", kinds:["bridal"], place:"Parkhall Business Centre, 40 Martell Rd, SE21 8EN", tag:"bridal", link:"https://www.eventbrite.co.uk/e/luxury-bridal-outlet-pop-up-sample-sale-tickets-2002892741105"},
-  {day:"Thu", date:"5 Nov", time:"9am to 6:30pm", brand:"Aspiga Sample Sale", area:"west", kinds:["womenswear"], place:"Chelsea Old Town Hall, King's Road, SW3 5EE", tag:"from £10", link:"https://www.eventbrite.co.uk/e/aspiga-sample-sale-tickets-2003197408373"},
-  {day:"", date:"6 to 8 Nov", time:"Fri 12 to 7pm, Sat 11 to 4pm, Sun 11 to 2pm", brand:"The Great Divide Sample Sale", area:"east", kinds:[], place:"Unit 4 Tanners Yard, 1-3 Treadway St, E2 6QB", tag:"cash preferred", link:"https://www.eventbrite.co.uk/e/the-great-divide-sample-sale-frizmworks-pendleton-dubbleware-more-tickets-2002629981183"}
+  {day:"Thu", date:"5 Nov", time:"9am to 6:30pm", brand:"Aspiga Sample Sale", area:"west", kinds:["womenswear"], place:"Chelsea Old Town Hall, King's Road, SW3 5EE", tag:"", link:"https://www.eventbrite.co.uk/e/aspiga-sample-sale-tickets-2003197408373"},
+  {day:"", date:"6 to 8 Nov", time:"Fri 12 to 7pm, Sat 11 to 4pm, Sun 11 to 2pm", brand:"The Great Divide Sample Sale", area:"east", kinds:[], place:"Unit 4 Tanners Yard, 1-3 Treadway St, E2 6QB", tag:"cash preferred", link:"https://www.eventbrite.co.uk/e/the-great-divide-sample-sale-frizmworks-pendleton-dubbleware-more-tickets-2002629981183"},
 ];
 const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
 const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
 const PAST = [
+  {brand:"YMC Archive Sale", date:"15 to 18 Oct"},
+  {brand:"The One & Only Designer Sale", date:"17 Oct"},
+  {brand:"Style Fuel", date:"7 to 17 Oct"},
+  {brand:"Jimmy Choo", date:"13 to 16 Oct"},
+  {brand:"Resident Archive Sale", date:"16 Oct"},
+  {brand:"Bella Freud", date:"15 Oct"},
   {brand:"Self-Portrait", date:"8 to 11 Oct"},
   {brand:"LSA Archive Sale", date:"6 to 8 Oct"},
   {brand:"Sunspel", date:"1 to 4 Oct"},
@@ -252,9 +266,8 @@ const PAST = [
   {brand:"Dunhill", date:"24 to 26 Sep"},
   {brand:"Stan Ray Archive Sale", date:"23 to 25 Sep"}
 ];
-const TOP_PICKS = ["Aspiga Sample Sale", "Reiss Sample Sale", "Jimmy Choo Sample Sale"]; // brand names, written exactly as in the lists
+const TOP_PICKS = ["Aspiga Sample Sale", "Reiss Sample Sale"]; // brand names, written exactly as in the lists
 const FINDS = [
-  {title:"Frock Me vintage fair", note:"100+ vintage fashion and jewellery dealers across 3 floors. Sun 18 Oct, Kensington Town Hall.", link:"https://www.eventbrite.co.uk/e/frock-me-vintage-fashion-and-jewellery-fair-october-2026-tickets-1992340968469"},
   {title:"Pre-loved designer pop-up", note:"50 to 80% off Chanel, Prada, Loewe and more. 5 to 7 Nov, White City, £5 tickets.", link:"https://www.eventbrite.co.uk/e/fashion-pop-up-pre-loved-designer-sale-tickets-2002076841728"},
   {title:"Fashion week runway and market", note:"Independent brands on the runway plus a pop-up market. Sat 20 Feb 2027, Kingsland Rd.", link:"https://www.eventbrite.com/e/fashion-show-during-london-fashion-week-tickets-1971483253482"}
 ];
@@ -265,12 +278,14 @@ const MONTHS = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov
 const pad2 = n => String(n).padStart(2, '0');
 const ymd = t => { const d = new Date(t); return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate()); };
 const calLink = s => {
-  const m = String(s.date).match(/(\d{1,2})(?:\s*to\s*(\d{1,2}))?\s+([A-Za-z]{3})/);
-  if (!m) return '';
-  const mo = MONTHS[m[3].toLowerCase()]; if (!mo) return '';
+  const t = Array.from(String(s.date).matchAll(/(\d{1,2})\s*([A-Za-z]{3})?/g));
+  if (!t.length) return '';
+  const first = t[0], last = t[t.length - 1];
+  const em = MONTHS[(last[2] || '').toLowerCase()]; if (!em) return '';
+  const sm = MONTHS[(first[2] || '').toLowerCase()] || em;
   const now = new Date();
-  const end = Date.UTC(2026, mo - 1, +(m[2] || m[1]));
-  const start = /until/i.test(s.date) ? Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) : Date.UTC(2026, mo - 1, +m[1]);
+  const end = Date.UTC(2026, em - 1, +last[1]);
+  const start = /until/i.test(s.date) ? Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) : Date.UTC(2026, sm - 1, +first[1]);
   const detail = [s.day, s.time].filter(Boolean).join(', ') + (s.link ? '\n' + s.link : '');
   return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(s.brand) +
     '&dates=' + ymd(start) + '/' + ymd(end + 86400000) + '&details=' + encodeURIComponent(detail) + '&location=' + encodeURIComponent(s.place);
@@ -316,6 +331,12 @@ document.getElementById('finds-grid').innerHTML = FINDS.map(f =>
   `<a class="find" href="${esc(f.link)}" target="_blank" rel="noopener"><b>${esc(f.title)}</b><span>${esc(f.note)}</span></a>`).join('');
 document.getElementById('pastChips').innerHTML = PAST.map(x => '<div class="pastc"><b>' + esc(x.brand) + '</b> ' + esc(x.date) + '</div>').join('');
 document.getElementById('submitBtn').href = SUBMIT_LINK;
+const burger = document.getElementById('burger'), navlist = document.getElementById('navlist');
+const setNav = open => { navlist.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); };
+burger.addEventListener('click', e => { e.stopPropagation(); setNav(!navlist.classList.contains('open')); });
+navlist.addEventListener('click', e => { if (e.target.closest('a')) setNav(false); });
+document.addEventListener('click', e => { if (!e.target.closest('nav')) setNav(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
 const joinBtn = document.getElementById('joinBtn');
 joinBtn.href = SUBSTACK_URL || 'https://instagram.com/ditsyhunt';
 joinBtn.textContent = SUBSTACK_URL ? 'Join the hunt' : 'Follow @ditsyhunt';
