@@ -152,7 +152,6 @@ footer a{color:var(--lime)}
 
 <section class="picks" id="picks"><div class="wrap">
   <h2>my top picks</h2>
-  <p class="sub">The sales I'd go to first.</p>
   <div class="pgrid" id="picksGrid"></div>
 </div></section>
 
@@ -229,28 +228,31 @@ footer a{color:var(--lime)}
 
 <script>
 /* ============ EDIT THIS EACH WEEK ============ */
-const WEEK_LABEL = "This week: 18 to 25 October";
+const WEEK_LABEL = "This week: 26 October to 1 November";
 const SALES = [
-  {day:"Tue to Thu", date:"20 to 22 Oct", time:"8am to 8pm", brand:"Reiss Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"next week", link:"https://www.showcase.co/event/reiss-oct26-uk-rs/attend"},
-  {day:"Tue to Wed", date:"20 to 21 Oct", time:"", brand:"Juicy Couture Sample Sale", area:"", kinds:["womenswear"], place:"The Box, London", tag:"next week", link:"https://thebox-london.com/products/juicy-couture-sample-sale"},
-  {day:"Tue to Wed", date:"20 to 21 Oct", time:"8am to 8pm", brand:"Thom Sweeney Sample Sale", area:"central", kinds:["menswear"], place:"The Music Room, Mayfair", tag:"cards only", link:""},
-  {day:"Thu to Sun", date:"22 to 25 Oct", time:"Thu 1:30 to 9pm, Fri 8am to 8pm, Sat 9:30am to 6pm, Sun 10am to 5pm", brand:"Studio Nicholson Sample Sale", area:"central", kinds:["womenswear","menswear","shoes"], place:"The Music Room, Mayfair", tag:"walk in, £2 entry to charity", link:""},
-  {day:"Fri to Mon", date:"23 to 26 Oct", time:"", brand:"Dr. Martens Archive Sale", area:"", kinds:["shoes","archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-dm"},
-  {day:"Sat to Sun", date:"24 to 25 Oct", time:"Sat 10am to 6pm, Sun 11am to 4pm", brand:"SiciliaFashion Italian Menswear Sale", area:"north", kinds:["menswear"], place:"7 Heath St, Hampstead, NW3 6TP", tag:"booking required", link:"https://www.eventbrite.com/e/siciliafashion-exclusive-italian-menswear-sample-sale-hampstead-tickets-2002388962289"},
-];
-const UPCOMING = [
   {day:"Mon to Sat", date:"26 to 31 Oct", time:"from 10:30am", brand:"Egomark Fashion Agency Sample Sale", area:"east", kinds:["womenswear","menswear"], place:"54 Hoxton Square, N1 6PB", tag:"up to 85% off", link:"https://www.eventbrite.com/e/sample-sale-egomark-fashion-agency-tickets-2003199815573"},
   {day:"Wed to Fri", date:"28 to 30 Oct", time:"Wed 3 to 7:30pm, Thu 9am to 8pm, Fri 9am to 12pm", brand:"Linda Farrow Sample Sale", area:"central", kinds:["accessories"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"sunglasses", link:"https://www.showcase.co/event/linda-farrow-oct26-uk-rs/"},
   {day:"Wed to Fri", date:"28 to 30 Oct", time:"", brand:"Gallery Dept. Sample Sale", area:"central", kinds:[], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2610-gd"},
   {day:"Thu to Sun", date:"29 Oct to 1 Nov", time:"", brand:"Vivienne Westwood Archive Sale", area:"", kinds:["archive"], place:"The Box, London", tag:"archive", link:"https://thebox-london.com/products/2610-vw"},
   {day:"Sat", date:"31 Oct", time:"", brand:"Massi's Yard Archive Sale", area:"", kinds:["menswear","archive"], place:"London", tag:"archive", link:"https://www.eventbrite.co.uk/d/united-kingdom--london/sample-sale/"},
   {day:"Sat", date:"31 Oct", time:"10am to 4pm, hourly slots", brand:"Luxury Bridal Outlet Pop-Up", area:"south", kinds:["bridal"], place:"Parkhall Business Centre, 40 Martell Rd, SE21 8EN", tag:"bridal", link:"https://www.eventbrite.co.uk/e/luxury-bridal-outlet-pop-up-sample-sale-tickets-2002892741105"},
+];
+const UPCOMING = [
   {day:"Thu", date:"5 Nov", time:"9am to 6:30pm", brand:"Aspiga Sample Sale", area:"west", kinds:["womenswear"], place:"Chelsea Old Town Hall, King's Road, SW3 5EE", tag:"", link:"https://www.eventbrite.co.uk/e/aspiga-sample-sale-tickets-2003197408373"},
+  {day:"Thu to Fri", date:"5 to 6 Nov", time:"", brand:"Anya Hindmarch Sample Sale", area:"central", kinds:["accessories"], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2611-ah"},
+  {day:"Fri to Sun", date:"6 to 8 Nov", time:"", brand:"House of Hackney Sample Sale", area:"", kinds:[], place:"The Box, London", tag:"", link:"https://thebox-london.com/products/2611-hoh"},
   {day:"", date:"6 to 8 Nov", time:"Fri 12 to 7pm, Sat 11 to 4pm, Sun 11 to 2pm", brand:"The Great Divide Sample Sale", area:"east", kinds:[], place:"Unit 4 Tanners Yard, 1-3 Treadway St, E2 6QB", tag:"cash preferred", link:"https://www.eventbrite.co.uk/e/the-great-divide-sample-sale-frizmworks-pendleton-dubbleware-more-tickets-2002629981183"},
+  {day:"Sat to Sun", date:"7 to 8 Nov", time:"", brand:"Shrimps, Aligne & Neous Sample Sale", area:"central", kinds:["womenswear"], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2611-san"},
 ];
 const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
 const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
 const PAST = [
+  {brand:"Dr. Martens Archive Sale", date:"23 to 26 Oct"},
+  {brand:"SiciliaFashion Italian Menswear Sale", date:"24 to 25 Oct"},
+  {brand:"Studio Nicholson", date:"22 to 25 Oct"},
+  {brand:"Reiss", date:"20 to 22 Oct"},
+  {brand:"Juicy Couture", date:"20 to 21 Oct"},
+  {brand:"Thom Sweeney", date:"20 to 21 Oct"},
   {brand:"YMC Archive Sale", date:"15 to 18 Oct"},
   {brand:"The One & Only Designer Sale", date:"17 Oct"},
   {brand:"Style Fuel", date:"7 to 17 Oct"},
@@ -266,8 +268,11 @@ const PAST = [
   {brand:"Dunhill", date:"24 to 26 Sep"},
   {brand:"Stan Ray Archive Sale", date:"23 to 25 Sep"}
 ];
-const TOP_PICKS = ["Aspiga Sample Sale", "Reiss Sample Sale"]; // brand names, written exactly as in the lists
+const TOP_PICKS = ["Aspiga Sample Sale", "Vivienne Westwood Archive Sale", "You Look Hot pop-up"]; // brand names, written exactly as in the lists
 const FINDS = [
+  {title:"Charlotte Tilbury at Harrods", note:"Free games and complimentary beauty services at the Magical Theatre of Beauty Dreams. Last day Tue 27 Oct, Door 6, Brompton Road.", link:"https://www.londonpopupcalendar.com/events/charlotte-tilbury-magical-theatre-of-beauty-dreams-pop-up/"},
+  {title:"Bob Beaut\u00e9 at Liberty", note:"Free goodie bags for the first 100 as the Norwegian brand opens at Liberty. Tue 27 Oct, 12 to 2pm, Regent Street.", link:"https://www.instagram.com/p/DewgGN-IK78/"},
+  {title:"You Look Hot pop-up", note:"A knitwear pop-up in Notting Hill, with Bella Christie jewellery joining until 27 Oct. Open until Fri 30 Oct.", date:"24 to 30 Oct", place:"2 Blenheim Crescent, Notting Hill", label:"See details", link:"https://www.instagram.com/p/DeH0FT8REO3/"},
   {title:"Pre-loved designer pop-up", note:"50 to 80% off Chanel, Prada, Loewe and more. 5 to 7 Nov, White City, £5 tickets.", link:"https://www.eventbrite.co.uk/e/fashion-pop-up-pre-loved-designer-sale-tickets-2002076841728"},
   {title:"Fashion week runway and market", note:"Independent brands on the runway plus a pop-up market. Sat 20 Feb 2027, Kingsland Rd.", link:"https://www.eventbrite.com/e/fashion-show-during-london-fashion-week-tickets-1971483253482"}
 ];
@@ -321,11 +326,11 @@ clear.addEventListener('click', () => {
   clear.hidden = true; draw();
 });
 draw();
-document.getElementById('picksGrid').innerHTML = TOP_PICKS.map(n => ALL.find(s => s.brand === n)).filter(Boolean).map(s => `
+document.getElementById('picksGrid').innerHTML = TOP_PICKS.map(n => ALL.find(s => s.brand === n) || (FINDS.filter(f => f.title === n).map(f => ({brand: f.title, date: f.date || '', place: f.place || '', label: f.label, link: f.link}))[0])).filter(Boolean).map(s => `
   <div class="pick">
     <div class="when">${esc(s.date)}</div>
     <h3>${esc(s.brand)}</h3><p>${esc(s.place)}</p>
-    <a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">Book a slot</a>
+    <a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.label || 'Book a slot')}</a>
   </div>`).join('');
 document.getElementById('finds-grid').innerHTML = FINDS.map(f =>
   `<a class="find" href="${esc(f.link)}" target="_blank" rel="noopener"><b>${esc(f.title)}</b><span>${esc(f.note)}</span></a>`).join('');
