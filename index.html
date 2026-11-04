@@ -130,6 +130,7 @@ footer a{color:var(--lime)}
   .about{grid-template-columns:1fr}section{padding:52px 0}.tote{width:80px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.find{transition:none}.find:hover{transform:none}}
+.pick .pnote{font-style:italic;font-weight:700;margin:4px 0 6px}
 </style>
 </head>
 <body>
@@ -244,7 +245,10 @@ const SALES = [
   {day:"Sat to Sun", date:"7 to 8 Nov", time:"", brand:"Shrimps, Aligne & Neous Sample Sale", area:"central", kinds:["womenswear"], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2611-san"},
 ];
 const UPCOMING = [
+  {day:"Tue to Wed", date:"10 to 11 Nov", time:"9am to 7:30pm", brand:"Needle & Thread Sample Sale", area:"central", kinds:["womenswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"up to 80% off", link:"https://www.showcase.co/event/needle-thread-nov26-uk-rs/"},
   {day:"Wed to Thu", date:"11 to 12 Nov", time:"5:30pm to 7:30pm", brand:"Oliver Brown Chelsea Sample Sale", area:"west", kinds:["menswear"], place:"75 Lower Sloane Street, SW1W 8DA", tag:"jackets from £65", link:"https://www.eventbrite.com/e/the-oliver-brown-chelsea-sample-sale-tickets-2003126422051"},
+  {day:"Thu to Sat", date:"12 to 14 Nov", time:"Thu 9am to 8pm, Fri 9am to 7pm, Sat 10am to 5pm", brand:"Reiss Clearance Sale", area:"south", kinds:["womenswear","menswear"], place:"Timber Square, 25 Lavington Street, SE1 0NZ", tag:"no fitting rooms", link:"https://www.showcase.co/event/reiss-nov26-uk-lbg/"},
+  {day:"Thu to Sat", date:"12 to 14 Nov", time:"Thu 9am to 8pm, Fri 9am to 7pm, Sat 10am to 5pm", brand:"Aspinal of London Sample Sale", area:"south", kinds:["accessories"], place:"Timber Square, 25 Lavington Street, SE1 0NZ", tag:"handbags, up to 70% off", link:"https://www.showcase.co/event/aspinal-of-london-nov26-ldn-lbg/"},
 ];
 const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
 const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
@@ -268,7 +272,8 @@ const PAST = [
   {brand:"Resident Archive Sale", date:"16 Oct"},
   {brand:"Bella Freud", date:"15 Oct"},
 ];
-const TOP_PICKS = ["Aspiga Sample Sale", "Vivienne Westwood Archive Sale", "You Look Hot pop-up"]; // brand names, written exactly as in the lists
+const TOP_PICKS = ["Aspiga Sample Sale", "Needle & Thread Sample Sale"];
+const PICK_NOTES = {"Needle & Thread Sample Sale": "Gorgeous dresses and gowns"}; // optional one-liner under a pick // brand names, written exactly as in the lists
 const FINDS = [
   {title:"Facetheory skincare roadshow", note:"Free personalised skincare consultations and a chance to win products as Facetheory celebrates arriving at Boots. Wed 4 Nov, 10am to 6pm.", date:"4 Nov", place:"Broadgate", label:"See details", link:"https://www.instagram.com/p/DezHVdmM5ab/"},
   {title:"SKIIM Paris pop-up", note:"A Parisian fashion label opens a temporary shop in Mayfair, with events through the week. 4 to 11 Nov, closed Sundays, 48 Albemarle Street.", date:"4 to 11 Nov", place:"48 Albemarle Street, Mayfair", label:"See details", link:"https://www.instagram.com/p/DfC3DpmC7vs/"},
@@ -330,7 +335,7 @@ draw();
 document.getElementById('picksGrid').innerHTML = TOP_PICKS.map(n => ALL.find(s => s.brand === n) || (FINDS.filter(f => f.title === n).map(f => ({brand: f.title, date: f.date || '', place: f.place || '', label: f.label, link: f.link}))[0])).filter(Boolean).map(s => `
   <div class="pick">
     <div class="when">${esc(s.date)}</div>
-    <h3>${esc(s.brand)}</h3><p>${esc(s.place)}</p>
+    <h3>${esc(s.brand)}</h3>${PICK_NOTES[s.brand] ? '<p class="pnote">' + esc(PICK_NOTES[s.brand]) + '</p>' : ''}<p>${esc(s.place)}</p>
     <a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.label || 'Book a slot')}</a>
   </div>`).join('');
 document.getElementById('finds-grid').innerHTML = FINDS.map(f =>
