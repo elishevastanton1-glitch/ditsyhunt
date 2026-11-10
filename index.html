@@ -229,57 +229,56 @@ footer a{color:var(--lime)}
 
 <script>
 /* ============ EDIT THIS EACH WEEK ============ */
-const WEEK_LABEL = "This week: 2 to 8 November";
+const WEEK_LABEL = "This week: 9 to 15 November";
 const SALES = [
-  {day:"Mon to Wed", date:"2 to 4 Nov", time:"Mon 3pm to 7:30pm, Tue and Wed 9am to 8pm", brand:"Moose Knuckles Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"outerwear", link:"https://www.showcase.co/event/moose-knuckles-nov26-uk-rs/"},
-  {day:"Tue to Wed", date:"3 to 4 Nov", time:"5:30pm to 7:30pm", brand:"Oliver Brown Cornhill Sample Sale", area:"central", kinds:["menswear"], place:"66-67 Cornhill, EC3V 3NB", tag:"jackets from £65", link:"https://www.eventbrite.com/e/the-oliver-brown-cornhill-sample-sale-tickets-2003124931593"},
-  {day:"Wed", date:"4 Nov", time:"10am to 6pm", brand:"Astley Clarke Archive Sale", area:"", kinds:["accessories"], place:"London", tag:"jewellery", link:"https://www.eventbrite.com/e/astley-clarke-archive-sale-tickets-2003596872180"},
-  {day:"Wed to Thu", date:"4 to 5 Nov", time:"Wed 9am to 6pm, Thu 10am to 4pm", brand:"Rupert Sanderson Sample Sale", area:"central", kinds:["shoes"], place:"61 Great Portland Street, W1W 7LL", tag:"walk in, no booking", link:""},
-  {day:"Thu", date:"5 Nov", time:"9am to 6:30pm", brand:"Aspiga Sample Sale", area:"west", kinds:["womenswear"], place:"Chelsea Old Town Hall, King's Road, SW3 5EE", tag:"", link:"https://www.eventbrite.co.uk/e/aspiga-sample-sale-tickets-2003197408373"},
-  {day:"Thu to Fri", date:"5 to 6 Nov", time:"", brand:"Anya Hindmarch Sample Sale", area:"central", kinds:["accessories"], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2611-ah"},
-  {day:"Fri to Sat", date:"6 to 7 Nov", time:"Fri 12pm to 7pm, Sat 10am to 5pm", brand:"Ted Baker & Florere Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"booking required", link:"https://www.showcase.co/event/ted-baker-florere-nov26-uk-rs/"},
-  {day:"Fri to Sat", date:"6 to 7 Nov", time:"Fri 12pm to 7pm, Sat 10am to 5pm", brand:"Nanushka Sample Sale", area:"central", kinds:["womenswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"booking required", link:"https://www.showcase.co/event/nanushka-nov26-uk-rs/"},
-  {day:"Fri to Sat", date:"6 to 7 Nov", time:"Fri 12pm to 7pm, Sat 10am to 5pm", brand:"Trilogy Denim Sample Sale", area:"central", kinds:["womenswear","menswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"denim", link:"https://www.chicmi.com/event/trilogy-denim-frame-citizens-of-humanity-ag-paige-hartford-and-rails-sample-sale-london/"},
-  {day:"Fri to Sun", date:"6 to 8 Nov", time:"", brand:"House of Hackney Sample Sale", area:"", kinds:[], place:"The Box, London", tag:"", link:"https://thebox-london.com/products/2611-hoh"},
-  {day:"", date:"6 to 8 Nov", time:"Fri 12 to 7pm, Sat 11 to 4pm, Sun 11 to 2pm", brand:"The Great Divide Sample Sale", area:"east", kinds:[], place:"Unit 4 Tanners Yard, 1-3 Treadway St, E2 6QB", tag:"cash preferred", link:"https://www.eventbrite.co.uk/e/the-great-divide-sample-sale-frizmworks-pendleton-dubbleware-more-tickets-2002629981183"},
-  {day:"Sat to Sun", date:"7 to 8 Nov", time:"", brand:"Shrimps, Aligne & Neous Sample Sale", area:"central", kinds:["womenswear"], place:"Store Street, Fitzrovia", tag:"", link:"https://thebox-london.com/products/2611-san"},
-];
-const UPCOMING = [
+  {day:"Tue to Wed", date:"10 to 11 Nov", time:"Tue 6:30pm to 9pm, Wed 9am to 2pm", brand:"Heidi Klein Sample Sale", area:"south", kinds:["womenswear"], place:"St Michael's Church, 71 Wimbledon Park Road, SW18 5TT", tag:"walk in, £2 entry", link:""},
   {day:"Tue to Wed", date:"10 to 11 Nov", time:"9am to 7:30pm", brand:"Needle & Thread Sample Sale", area:"central", kinds:["womenswear"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"up to 80% off", link:"https://www.showcase.co/event/needle-thread-nov26-uk-rs/"},
   {day:"Wed to Thu", date:"11 to 12 Nov", time:"5:30pm to 7:30pm", brand:"Oliver Brown Chelsea Sample Sale", area:"west", kinds:["menswear"], place:"75 Lower Sloane Street, SW1W 8DA", tag:"jackets from £65", link:"https://www.eventbrite.com/e/the-oliver-brown-chelsea-sample-sale-tickets-2003126422051"},
+  {day:"Wed to Sun", date:"11 to 15 Nov", time:"", brand:"END. Archive Sale", area:"east", kinds:["archive"], place:"The Box, 4-6 Ram Place, E9 6LT", tag:"archive", link:"https://thebox-london.com/products/2611-end"},
+  {day:"", date:"until 12 Nov", time:"until 8pm on Thu", brand:"SSL Multi-Brand Designer Sample Sale", area:"central", kinds:[], place:"18 Fitzhardinge Street, W1H", tag:"multi-brand", link:""},
+  {day:"Thu", date:"12 Nov", time:"8am to 8pm", brand:"Emilia Wickstead Sample Sale", area:"central", kinds:["womenswear"], place:"The Music Room, 58 Davies Street, W1K 5JF", tag:"one day only", link:""},
+  {day:"Thu", date:"12 Nov", time:"from 10am", brand:"RIXO London Sample Sale", area:"central", kinds:["womenswear"], place:"19 D'Arblay Street, W1F 8ED", tag:"", link:""},
+  {day:"Thu to Fri", date:"12 to 13 Nov", time:"from 10am, Fri until 4pm", brand:"Little Green Radicals Warehouse Sale", area:"south", kinds:[], place:"2-6 Atlantic Road, SW9 8HY", tag:"kidswear", link:""},
   {day:"Thu to Sat", date:"12 to 14 Nov", time:"Thu 9am to 8pm, Fri 9am to 7pm, Sat 10am to 5pm", brand:"Reiss Clearance Sale", area:"south", kinds:["womenswear","menswear"], place:"Timber Square, 25 Lavington Street, SE1 0NZ", tag:"no fitting rooms", link:"https://www.showcase.co/event/reiss-nov26-uk-lbg/"},
   {day:"Thu to Sat", date:"12 to 14 Nov", time:"Thu 9am to 8pm, Fri 9am to 7pm, Sat 10am to 5pm", brand:"Aspinal of London Sample Sale", area:"south", kinds:["accessories"], place:"Timber Square, 25 Lavington Street, SE1 0NZ", tag:"handbags, up to 70% off", link:"https://www.showcase.co/event/aspinal-of-london-nov26-ldn-lbg/"},
+  {day:"Thu to Sat", date:"12 to 14 Nov", time:"Thu 9am to 8pm, Fri 9am to 7pm, Sat 10am to 5pm", brand:"Oliver Sweeney Sample Sale", area:"south", kinds:["menswear","shoes"], place:"Timber Square, 25 Lavington Street, SE1 0NZ", tag:"up to 70% off", link:"https://www.chicmi.com/event/oliver-sweeney-sample-sale-london/"},
+  {day:"Sun", date:"15 Nov", time:"11am to 4pm", brand:"Ally Capellino Sample Sale", area:"east", kinds:["accessories"], place:"Sotos Gents Hair Stylist, 20 Calvert Avenue", tag:"bags up to 80% off", link:""},
+];
+const UPCOMING = [
+  {day:"Thu to Sun", date:"19 to 22 Nov", time:"", brand:"Wax London & Fred Perry Sample Sale", area:"", kinds:["menswear"], place:"The Box, London", tag:"", link:"https://thebox-london.com/products/2611-wax-fp"},
+  {day:"Thu to Sun", date:"26 to 29 Nov", time:"", brand:"Hunter Sample Sale", area:"", kinds:["shoes"], place:"The Box, London", tag:"boots", link:"https://thebox-london.com/products/2611-hunter"},
 ];
 const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
 const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
 const PAST = [
+  {brand:"Shrimps, Aligne & Neous", date:"7 to 8 Nov"},
+  {brand:"House of Hackney", date:"6 to 8 Nov"},
+  {brand:"The Great Divide", date:"6 to 8 Nov"},
+  {brand:"Ted Baker & Florere", date:"6 to 7 Nov"},
+  {brand:"Nanushka", date:"6 to 7 Nov"},
+  {brand:"Trilogy Denim", date:"6 to 7 Nov"},
+  {brand:"Anya Hindmarch", date:"5 to 6 Nov"},
+  {brand:"Aspiga", date:"5 Nov"},
+  {brand:"Rupert Sanderson", date:"4 to 5 Nov"},
+  {brand:"Astley Clarke Archive Sale", date:"4 Nov"},
+  {brand:"Oliver Brown Cornhill", date:"3 to 4 Nov"},
+  {brand:"Moose Knuckles", date:"2 to 4 Nov"},
   {brand:"Vivienne Westwood Archive Sale", date:"29 Oct to 1 Nov"},
   {brand:"Egomark Fashion Agency", date:"26 to 31 Oct"},
   {brand:"Massi's Yard Archive Sale", date:"31 Oct"},
   {brand:"Luxury Bridal Outlet Pop-Up", date:"31 Oct"},
   {brand:"Linda Farrow", date:"28 to 30 Oct"},
   {brand:"Gallery Dept.", date:"28 to 30 Oct"},
-  {brand:"Dr. Martens Archive Sale", date:"23 to 26 Oct"},
-  {brand:"SiciliaFashion Italian Menswear Sale", date:"24 to 25 Oct"},
-  {brand:"Studio Nicholson", date:"22 to 25 Oct"},
-  {brand:"Reiss", date:"20 to 22 Oct"},
-  {brand:"Juicy Couture", date:"20 to 21 Oct"},
-  {brand:"Thom Sweeney", date:"20 to 21 Oct"},
-  {brand:"YMC Archive Sale", date:"15 to 18 Oct"},
-  {brand:"The One & Only Designer Sale", date:"17 Oct"},
-  {brand:"Style Fuel", date:"7 to 17 Oct"},
-  {brand:"Jimmy Choo", date:"13 to 16 Oct"},
-  {brand:"Resident Archive Sale", date:"16 Oct"},
-  {brand:"Bella Freud", date:"15 Oct"},
 ];
-const TOP_PICKS = ["Aspiga Sample Sale", "Needle & Thread Sample Sale"];
+const TOP_PICKS = ["Needle & Thread Sample Sale", "RIXO London Sample Sale"];
 const PICK_NOTES = {"Needle & Thread Sample Sale": "Gorgeous dresses and gowns"}; // optional one-liner under a pick // brand names, written exactly as in the lists
 const FINDS = [
-  {title:"Facetheory skincare roadshow", note:"Free personalised skincare consultations and a chance to win products as Facetheory celebrates arriving at Boots. Wed 4 Nov, 10am to 6pm.", date:"4 Nov", place:"Broadgate", label:"See details", link:"https://www.instagram.com/p/DezHVdmM5ab/"},
-  {title:"SKIIM Paris pop-up", note:"A Parisian fashion label opens a temporary shop in Mayfair, with events through the week. 4 to 11 Nov, closed Sundays, 48 Albemarle Street.", date:"4 to 11 Nov", place:"48 Albemarle Street, Mayfair", label:"See details", link:"https://www.instagram.com/p/DfC3DpmC7vs/"},
-  {title:"Pre-loved designer pop-up", note:"50 to 80% off Chanel, Prada, Loewe and more. 5 to 7 Nov, White City, £5 tickets.", link:"https://www.eventbrite.co.uk/e/fashion-pop-up-pre-loved-designer-sale-tickets-2002076841728"},
-  {title:"L'Occitane Christmas Experience", note:"A free ticketed festive pop-up with a complimentary drink and a goodie bag worth £20+. Fri 6 Nov, 34 Bloomsbury.", date:"6 Nov", place:"34 Bloomsbury, WC1B 3QJ", label:"Get a ticket", link:"https://www.tickettailor.com/events/loccitaneenprovence/2424198"},
-  {title:"The Diamond Store pop-up", note:"Free entry (limited tickets) to a jewellery pop-up with try-ons and a daily £1,000 jewellery giveaway. 6 to 8 Nov, Earlham Street.", date:"6 to 8 Nov", place:"40 Earlham Street, Covent Garden", label:"Get a ticket", link:"https://www.tickettailor.com/events/thediamondstore/2456782"},
+  {title:"SKIIM Paris pop-up", note:"A Parisian fashion label's temporary shop in Mayfair. Last day tomorrow, Wed 11 Nov, closing at 3pm.", date:"until 11 Nov", place:"48 Albemarle Street, Mayfair", label:"See details", link:"https://www.instagram.com/p/DfC3DpmC7vs/"},
+  {title:"The Pop-Up Perfumery", note:"Nine independent fragrance brands in one shop for the third edition. 10 to 14 Nov, 41 Store Street.", date:"10 to 14 Nov", place:"41 Store Street, Fitzrovia", label:"See details", link:"https://www.instagram.com/p/DdeX4wqRDoZ/"},
+  {title:"SACHEU Road Trip pop-up", note:"Free goodies and shade matching beside the brand's pop-up Range Rover. Fri 13 Nov, 11am to 4pm, Battersea Power Station. Free ticket needed.", date:"13 Nov", place:"Battersea Power Station", label:"Get a ticket", link:"https://www.eventbrite.com/e/sacheu-road-trip-london-tickets-2004374833082"},
+  {title:"MILLILAYER K-beauty pop-up", note:"A free good-fortune pouch for every visitor, plus a free sheet mask when you follow them. 13 to 16 Nov, Mayfair.", date:"13 to 16 Nov", place:"48 Albemarle Street, Mayfair", label:"See details", link:"https://popup.millilayer.com/"},
+  {title:"PHLUR holiday market", note:"Fragrance discovery with their new Cashmere Frost Mist. 13 to 15 Nov, Great Titchfield Street. Expect a queue.", date:"13 to 15 Nov", place:"67 Great Titchfield Street", label:"See details", link:"https://www.instagram.com/phlur/"},
+  {title:"LOOKFANTASTIC x Molly-Mae", note:"A free walk-in photobooth with a mystery charm while stocks last. Sat 14 Nov from 10am, Battersea Power Station. Join the LOOKFANTASTIC waitlist first.", date:"14 Nov", place:"Battersea Power Station", label:"See details", link:"https://365retail.co.uk/lookfantastic-molly-mae-pop-ups-london-manchester/"},
   {title:"Fashion week runway and market", note:"Independent brands on the runway plus a pop-up market. Sat 20 Feb 2027, Kingsland Rd.", link:"https://www.eventbrite.com/e/fashion-show-during-london-fashion-week-tickets-1971483253482"},
 ];
 /* ============================================= */
@@ -336,7 +335,7 @@ document.getElementById('picksGrid').innerHTML = TOP_PICKS.map(n => ALL.find(s =
   <div class="pick">
     <div class="when">${esc(s.date)}</div>
     <h3>${esc(s.brand)}</h3>${PICK_NOTES[s.brand] ? '<p class="pnote">' + esc(PICK_NOTES[s.brand]) + '</p>' : ''}<p>${esc(s.place)}</p>
-    <a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.label || 'Book a slot')}</a>
+    ${s.link ? `<a class="pill" href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.label || 'Book a slot')}</a>` : ''}
   </div>`).join('');
 document.getElementById('finds-grid').innerHTML = FINDS.map(f =>
   `<a class="find" href="${esc(f.link)}" target="_blank" rel="noopener"><b>${esc(f.title)}</b><span>${esc(f.note)}</span></a>`).join('');
