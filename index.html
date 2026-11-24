@@ -229,20 +229,24 @@ footer a{color:var(--lime)}
 
 <script>
 /* ============ EDIT THIS EACH WEEK ============ */
-const WEEK_LABEL = "This week: 16 to 22 November";
+const WEEK_LABEL = "This week: 23 to 29 November";
 const SALES = [
-  {day:"Tue to Thu", date:"17 to 19 Nov", time:"9am to 8pm", brand:"16Arlington & Desmond & Dempsey Sample Sale", area:"central", kinds:["womenswear"], place:"Sample Sale London, 18 Fitzhardinge Street, W1H 6EQ", tag:"free, register first", link:"https://www.chicmi.com/event/16arlington-and-desmond-dempsey-sample-sale-london/"},
-  {day:"Tue to Sun", date:"17 to 22 Nov", time:"Tue to Sat 10am to 7pm, Sun 11am to 4pm", brand:"Joseph Cheaney & Sons Sample Sale", area:"", kinds:["shoes"], place:"London", tag:"up to 70% off", link:""},
-  {day:"Thu to Sun", date:"19 to 22 Nov", time:"Thu from 11am, Sun until 5pm", brand:"Wax London & Fred Perry Sample Sale", area:"east", kinds:["menswear"], place:"The Box, 4-6 Ram Place, E9 6LT", tag:"", link:"https://thebox-london.com/products/2611-wax-fp"},
-  {day:"Sat", date:"21 Nov", time:"11:30am to 4:30pm", brand:"Alex Monroe Sample Sale", area:"south", kinds:["accessories"], place:"Bermondsey Village Hall, Kirby Grove", tag:"£2 charity entry", link:"https://www.chicmi.com/event/alex-monroe-sample-sale-london/"},
+  {day:"Mon to Tue", date:"23 to 24 Nov", time:"9am to 8pm", brand:"Oceanus, Vivienne Westwood Archive & Desmond & Dempsey Sample Sale", area:"central", kinds:["womenswear"], place:"18 Fitzhardinge Street, W1H 6EQ", tag:"free, register first", link:"https://www.eventbrite.co.uk/e/oceanus-vivienne-westwood-archive-desmond-dempsey-sample-sale-tickets-2005057271273"},
+  {day:"Wed to Mon", date:"25 to 30 Nov", time:"", brand:"Style Fuel Christmas Bazaar & Sample Sale", area:"central", kinds:["womenswear"], place:"193-195 City Road, EC1V 1JN", tag:"free entry", link:""},
+  {day:"Thu to Sun", date:"26 to 29 Nov", time:"Thu 11am to 8pm, Fri 11am to 7pm, Sat 11am to 6pm, Sun 12pm to 5pm", brand:"Hunter Sample Sale", area:"east", kinds:["shoes"], place:"The Box, 4-6 Ram Place, E9 6LT", tag:"up to 80% off", link:"https://thebox-london.com/products/2611-hunter"},
+  {day:"Thu to Sun", date:"26 to 29 Nov", time:"9am to 8pm", brand:"Andrea Iyamah Sample Sale", area:"central", kinds:["womenswear"], place:"18 Fitzhardinge Street, W1H 6EQ", tag:"swimwear, free entry", link:"https://www.eventbrite.co.uk/e/andrea-iyamah-sample-sale-tickets-2004980459527"},
 ];
 const UPCOMING = [
-  {day:"Wed to Mon", date:"25 to 30 Nov", time:"", brand:"Style Fuel Christmas Bazaar & Sample Sale", area:"central", kinds:["womenswear"], place:"193-195 City Road, EC1V 1JN", tag:"free entry", link:""},
-  {day:"Thu to Sun", date:"26 to 29 Nov", time:"", brand:"Hunter Sample Sale", area:"", kinds:["shoes"], place:"The Box, London", tag:"boots", link:"https://thebox-london.com/products/2611-hunter"},
+  {day:"Wed to Fri", date:"2 to 4 Dec", time:"Wed and Thu 9am to 7:45pm, Fri 8:45am to 1:30pm", brand:"Manolo Blahnik Private Sale", area:"central", kinds:["shoes"], place:"Showcase, 12 Regent Street, St James's, SW1Y 4PE", tag:"booking required", link:"https://www.showcase.co/event/manolo-blahnik-dec26-uk-rs/"},
+  {day:"Sat", date:"5 Dec", time:"10am to 4pm, hourly slots", brand:"The Bridal Remedy Bridal Outlet Pop-Up", area:"south", kinds:["bridal"], place:"Parkhall Business Centre, 40 Martell Road, SE21 8EN", tag:"book a slot", link:"https://www.eventbrite.co.uk/e/the-bridal-remedy-bridal-outlet-pop-up-5th-december-sample-sale-tickets-2003932507073"},
 ];
 const SUBSTACK_URL = "https://ditsyhunt.substack.com/"; // paste your Substack link here when it is ready
 const SUBMIT_LINK = "https://docs.google.com/forms/d/e/1FAIpQLScpoGth3Eqv2leL50pmNeCI43DKx7j7wrDVdazpTfK-wgGE6A/viewform";
 const PAST = [
+  {brand:"Joseph Cheaney & Sons", date:"17 to 22 Nov"},
+  {brand:"Wax London & Fred Perry", date:"19 to 22 Nov"},
+  {brand:"Alex Monroe", date:"21 Nov"},
+  {brand:"16Arlington & Desmond & Dempsey", date:"17 to 19 Nov"},
   {brand:"Ally Capellino", date:"15 Nov"},
   {brand:"END. Archive Sale", date:"11 to 15 Nov"},
   {brand:"Reiss Clearance Sale", date:"12 to 14 Nov"},
@@ -257,15 +261,10 @@ const PAST = [
   {brand:"House of Hackney", date:"6 to 8 Nov"},
   {brand:"The Great Divide", date:"6 to 8 Nov"},
   {brand:"Ted Baker & Florere", date:"6 to 7 Nov"},
-  {brand:"Nanushka", date:"6 to 7 Nov"},
-  {brand:"Trilogy Denim", date:"6 to 7 Nov"},
-  {brand:"Anya Hindmarch", date:"5 to 6 Nov"},
-  {brand:"Aspiga", date:"5 Nov"},
 ];
-const TOP_PICKS = ["PURITO at Skin Cupid", "Indoor snowfall at Seven Dials Market"];
+const TOP_PICKS = ["Indoor snowfall at Seven Dials Market"];
 const PICK_NOTES = {"PURITO at Skin Cupid": "Free minis with spend", "Indoor snowfall at Seven Dials Market": "Snowfall at 3pm and 8pm daily", "Needle & Thread Sample Sale": "Gorgeous dresses and gowns"}; // optional one-liner under a pick // brand names, written exactly as in the lists
 const FINDS = [
-  {title:"PURITO at Skin Cupid", note:"Free mini skincare with PURITO spend (£20+ or £30+), plus 20% off a voucher when you recycle empties in store. Until Wed 18 Nov.", date:"until 18 Nov", place:"Skin Cupid London Flagship", label:"See details", link:"https://londonpopupcalendar.com/events/skin-cupid-purito-oat-in-range-pop-up/"},
   {title:"Indoor snowfall at Seven Dials Market", note:"Indoor snowfall twice a day, at 3pm and 8pm, all through the festive season. 13 Nov to 31 Dec, Covent Garden.", date:"13 Nov to 31 Dec", place:"Seven Dials Market, Covent Garden", label:"See details", link:"https://londonpopupcalendar.com/events/seven-dials-market-indoor-snowfall/"},
   {title:"Fashion week runway and market", note:"Independent brands on the runway plus a pop-up market. Sat 20 Feb 2027, Kingsland Rd.", link:"https://www.eventbrite.com/e/fashion-show-during-london-fashion-week-tickets-1971483253482"},
 ];
